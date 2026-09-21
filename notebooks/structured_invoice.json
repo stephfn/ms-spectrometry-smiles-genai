@@ -1,0 +1,64 @@
+{
+  "vendor": {
+    "name": null,
+    "company": "Company Name",
+    "street": "321 Avenue A",
+    "city": "Portland",
+    "state": "OR",
+    "postal_code": "12345",
+    "phone": "(206) 555-1163",
+    "fax": "(206) 555-1164",
+    "email": "someone@websitegoeshere.com"
+  },
+  "bill_to": {
+    "name": "Natasha Jones",
+    "company": "Central Beauty",
+    "street": "123 Main St.",
+    "city": "Manhattan",
+    "state": "NY",
+    "postal_code": "98765",
+    "phone": "(321) 555-1234",
+    "fax": null,
+    "email": null
+  },
+  "invoice_date": "6/28/2024",
+  "invoice_number": "1111",
+  "purchase_order_number": "123456",
+  "discount_qualification_amount": 100.0,
+  "qualifying_discount_percent": 10.0,
+  "line_items": [
+    {
+      "quantity": 1.0,
+      "description": "Item Number 1",
+      "unit_price": 2.0,
+      "amount": 2.0,
+      "discount_applied": null
+    },
+    {
+      "quantity": 1.0,
+      "description": "Item Number 2",
+      "unit_price": 2.0,
+      "amount": 2.0,
+      "discount_applied": null
+    },
+    {
+      "quantity": 1.0,
+      "description": "Item Number 3",
+      "unit_price": 2.0,
+      "amount": 2.0,
+      "discount_applied": null
+    }
+  ],
+  "subtotal": 6.0,
+  "credit": 1000.0,
+  "tax_percent": 9.8,
+  "additional_discount_percent": 12.0,
+  "balance_due": -994.2,
+  "currency": null,
+  "payment_instructions": "Make all checks payable to <Company name>.",
+  "notes": [
+    "If you have any questions concerning this invoice, contact",
+    "<Name> at <phone or email>.",
+    "Thank you for your business!"
+  ]
+}
