@@ -1,8 +1,8 @@
 # MS/MS-to-SMILES Molecular Structure Generation
 
-An in-progress DSC670 capstone project exploring generative AI for predicting molecular structures, represented as SMILES strings, from tandem mass spectrometry (MS/MS) data.
+An in progress DSC670 capstone project exploring generative AI for predicting molecular structures, represented as SMILES strings, from tandem mass spectrometry (MS/MS) data.
 
-This project connects chemistry, scientific data preparation, and machine learning. Its goal is to compare a base generative model with a supervised fine-tuned model on a manageable subset of MassSpecGym.
+This project connects chemistry, scientific data preparation, and machine learning. Its goal is to compare a base generative model with a supervised fine tuned model on a manageable subset of MassSpecGym.
 
 ## Current Status
 
