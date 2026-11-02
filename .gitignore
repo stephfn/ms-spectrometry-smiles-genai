@@ -1,1 +1,9 @@
-.ipynb_checkpoints/ 
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.env
+
+# Downloaded MS-BART inputs and checkpoints remain local.
+ms_bart_pilot/data/
+ms_bart_pilot/model-weights/
+ms_bart_pilot/results/
