@@ -97,11 +97,13 @@ RDKit is used to parse generated molecular structures, calculate canonical repre
 
 Evaluation currently distinguishes between canonical SMILES exact matching and tautomer-standardized molecular connectivity matching. Planned experiments will additionally examine ranked molecular candidates through beam search and top-k evaluation metrics.
 
-Supervised fine-tuning will be evaluated against the pretrained model using consistent validation procedures.
+Supervised fine-tuning has been evaluated against the pretrained model using consistent validation procedures.
 
 ## Repository Contents
 
-- [`notebooks/01_massspecgym_feasibility.ipynb`](notebooks/01_massspecgym_feasibility.ipynb): Dataset exploration, data-quality assessment, and initial feasibility analysis.
+- [`notebooks/01_massspecgym_feasibility.ipynb`](notebooks/01_massspecgym_feasibility.ipynb): Dataset exploration, data-quality assessment, and initial feasibility analysis
+
+- [https://github.com/stephfn/ms-spectrometry-smiles-genai/blob/main/ms_bart_milestone3_upload/ms_bart_milestone3_final_review.ipynb?utm_source=chatgpt.com]
 
 Additional experimental notebooks document generative model testing and MS-BART pilot development.
 
@@ -116,6 +118,7 @@ The notebooks serve as evolving research records, including experimental decisio
 5. Test the application and document its environment, dependencies, and limitations.
 6. Expand evaluation using additional held-out molecular examples and ranked predictions.
 7. Investigate whether incorporating precursor mass, fragment-ion information, and neutral-loss relationships can improve molecular structure identification.
+
 ## Technologies
 
 **Languages and libraries:** Python, pandas, PyTorch, Hugging Face Transformers, Hugging Face Datasets, RDKit, and SELFIES.
