@@ -12,9 +12,15 @@ Traditional spectral library searches rank existing molecular candidates against
 
 This project investigates these challenges using MassSpecGym, RDKit, and MS-BART, a specialized sequence-generation model.
 
-## Current Status
+### Current Project Status
 
-**Data exploration, molecular validation, and preliminary MS-BART inference have been completed. Evaluation improvements and fine-tuning experiments are in progress.**
+Data exploration, molecular validation, pretrained MS-BART inference, and a small-scale full-parameter fine-tuning experiment have been completed.
+
+The fine-tuning pilot used 128 training examples and 32 held-out validation examples. All 104,105,472 model parameters were trainable, and the model was updated over one training epoch.
+
+Although fine-tuning changed the generated predictions, the experiment did not demonstrate reliable improvement in molecular identification accuracy. Both the pretrained and fine-tuned models generated chemically valid structures for all 32 validation examples, but neither produced an exact reference match.
+
+The current development phase focuses on integrating the saved fine-tuned model into a Streamlit application for interactive molecular candidate generation and visualization.
 
 ### Data Exploration and Validation
 
@@ -47,6 +53,25 @@ Initial results from 32 validation examples:
 These results demonstrate successful generation of chemically valid structures within the pilot sample, but no correct identifications under the implemented comparison methods.
 
 The small sample size limits generalization. Additional evaluation is needed to determine whether alternative decoding strategies, molecular standardization, and fine-tuning improve structural accuracy.
+
+### MS-BART Fine-Tuning and Evaluation
+
+A full-parameter fine-tuning experiment was performed using 128 MIST-derived fingerprint-to-SELFIES training examples. The pretrained and fine-tuned models were evaluated on the same 32 held-out validation examples using consistent decoding and molecular comparison procedures.
+
+| Evaluation Metric | Pretrained MS-BART | Fine-Tuned MS-BART |
+|---|---:|---:|
+| Valid generated structures | 32/32 | 32/32 |
+| Canonical SMILES exact matches | 0/32 | 0/32 |
+| Standardized connectivity matches | 0/32 | 0/32 |
+| Mean Morgan fingerprint Tanimoto similarity | 0.2282 | 0.2341 |
+
+Fine-tuning changed 24 of the 32 generated SELFIES sequences. However, the structural similarity results were mixed: 12 examples improved, 12 worsened, and eight remained unchanged.
+
+The mean Tanimoto similarity increased by approximately 0.00594, but the 95% bootstrap confidence interval included zero (−0.00945 to 0.02416). Consequently, the results do not establish a reliable improvement in molecular similarity or identification accuracy.
+
+These findings reinforce the distinction between successful model optimization, chemically valid structure generation, and correct molecular identification.
+
+The model currently generates molecular structures from MIST-derived fingerprint representations rather than directly processing raw tandem mass spectra. The resulting predictions should be treated as exploratory molecular candidates requiring independent chemical validation.
 
 ## Datasets and Molecular Representations
 
@@ -84,14 +109,13 @@ The notebooks serve as evolving research records, including experimental decisio
 
 ## Next Steps
 
-1. Expand baseline evaluation using multiple generated molecular candidates.
-2. Measure top-k structural accuracy and mean reciprocal rank.
-3. Refine molecular standardization and comparison procedures.
-4. Conduct a constrained supervised fine-tuning experiment.
-5. Compare pretrained and fine-tuned model performance.
-6. Explore a lightweight interactive interface for molecular prediction and visualization.
-7. Document model limitations, reproducibility, and potential improvements.
-
+1. Integrate the saved fine-tuned MS-BART checkpoint into an interactive Streamlit application.
+2. Implement fingerprint input and candidate molecular structure generation.
+3. Add SELFIES decoding, canonical SMILES validation, and RDKit molecular visualization.
+4. Provide optional reference comparisons using molecular fingerprint similarity.
+5. Test the application and document its environment, dependencies, and limitations.
+6. Expand evaluation using additional held-out molecular examples and ranked predictions.
+7. Investigate whether incorporating precursor mass, fragment-ion information, and neutral-loss relationships can improve molecular structure identification.
 ## Technologies
 
 **Languages and libraries:** Python, pandas, PyTorch, Hugging Face Transformers, Hugging Face Datasets, RDKit, and SELFIES.
